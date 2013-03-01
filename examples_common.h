@@ -31,11 +31,14 @@ typedef struct iplist
     FILE *file;
 }*ipinfo;
 
+// 枚举
+enum {READ,WRITE};
+
 // 数据库查询
 MYSQL_RES *query_mysql(char *str);
 
 // 发包
-int lib_scp(ipinfo iplist);
+int libssh_scp(ipinfo iplist);
 
 /*
 int authenticate_console(ssh_session session);
