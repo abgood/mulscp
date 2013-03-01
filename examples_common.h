@@ -15,6 +15,8 @@ clients must be made or how a client should react.
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 #include <libssh/libssh.h>
 #include <mysql/mysql.h>
 
@@ -40,11 +42,13 @@ MYSQL_RES *query_mysql(char *str);
 // 发包
 int libssh_scp(ipinfo iplist);
 
-/*
-int authenticate_console(ssh_session session);
-int authenticate_kbdint(ssh_session session, const char *password);
+// ssh连接创建
+ssh_session connect_ssh(char *ip,char *user,char *port,char *pawd);
+
+// 验证
+int authenticate_console(ssh_session session,char *password);
+
+// knownhosts
 int verify_knownhost(ssh_session session);
-ssh_session connect_ssh(const char *hostname, const char *user, int verbosity);
-*/
 
 #endif /* EXAMPLES_COMMON_H_ */
