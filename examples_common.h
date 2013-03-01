@@ -19,6 +19,9 @@ clients must be made or how a client should react.
 #include <errno.h>
 #include <libssh/libssh.h>
 #include <mysql/mysql.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
 
 typedef struct iplist
 {
